@@ -57,3 +57,5 @@ def while_input_for(converter):
 int_input = while_input_for(int)
 bool_input = while_input_for(is_bool)
 float_input = while_input_for(float)
+
+SCORES_FILE_NAME = 'Scores.txt'
