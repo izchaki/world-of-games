@@ -1,6 +1,10 @@
 import os
 
 
+def check_str_by_regex(regex):
+    import re
+    pattern = re.compile(regex)
+    return lambda string: pattern.match(string) != None
 
 
 def is_bool(string):
