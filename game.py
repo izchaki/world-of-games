@@ -1,4 +1,5 @@
 from utils import int_input, bool_input
+from Score import add_score
 import os
 
 
@@ -18,7 +19,9 @@ class Game:
 
     def start_Game(self):
         try:
-            self.play()
+            user_won = self.play()
+            if user_won:
+                add_score(self.difficulty)
         finally:
             self.end_of_game()
 
@@ -27,4 +30,4 @@ class Game:
         os.system('cls||clear')
         if answer:
             self.reset_game()
-            self.play()
+            self.start_Game()

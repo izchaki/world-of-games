@@ -42,4 +42,6 @@ class MemoryGame(Game):
         os.system('cls||clear')
         self.get_list_from_user()
         os.system('cls||clear')
-        print(text2art(str(self.is_list_equal())))
+        result = str(self.is_list_equal())
+        print(text2art(result))
+        return result

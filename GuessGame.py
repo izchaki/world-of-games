@@ -32,4 +32,6 @@ class GuessGame(Game):
 
     def play(self):
         self.get_guess_from_user()
-        print(text2art(str(self.compare_results())))
+        result = str(self.compare_results())
+        print(text2art(result))
+        return result
