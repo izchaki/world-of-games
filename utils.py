@@ -4,7 +4,7 @@ import os
 def check_str_by_regex(regex):
     import re
     pattern = re.compile(regex)
-    return lambda string: pattern.match(string) != None
+    return lambda string: pattern.match(string) is not None
 
 
 def is_bool(string):
