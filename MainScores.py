@@ -8,7 +8,7 @@ def score_server():
     @app.route("/", methods=['GET'])
     def get():
         try:
-            f = open('scores.txt', 'r')
+            f = open('Scores.txt', 'r')
             res = f.read()
             print(res)
             return render_template('index.html', SCORE=res)
