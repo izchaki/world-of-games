@@ -9,3 +9,4 @@ def add_score(difficulty: int):
     finally:
         f = open('scores.txt', 'w')
         f.write(str(new_score))
+        f.close
