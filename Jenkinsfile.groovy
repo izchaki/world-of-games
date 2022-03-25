@@ -9,16 +9,5 @@ pipeline {
                 sh 'docker rmi izchaki/my-flask:from-jenkins-pipeline'
             }
         }
-        stage('list files') {
-            agent {
-                docker {
-                    image "moditamam/selenium:from-jenkins-pipeline"
-                    reuseNode true
-                }
-            }
-            steps {
-                sh 'echo worked!!!!!'
-            }
-        }
     }
 }
