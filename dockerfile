@@ -62,5 +62,6 @@ COPY ./templates ./templates
 COPY ./MainScores.py ./MainScores.py
 COPY ./Scores.txt ./Scores.txt
 COPY ./e2e.py ././e2e.py
+COPY ./start.sh ./start.sh
 EXPOSE 5001
-CMD python3 ./MainScores.py
+# CMD ["/bin/bash","/app/start.sh "]
