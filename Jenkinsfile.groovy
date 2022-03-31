@@ -24,12 +24,12 @@ spec:
     - name: DOCKER_USER_NAME
       valueFrom:
         secretKeyRef:
-           name: secret-additional
+           name: j-jenkins-additional-secrets
            key: docker-user-name
     - name: DOCKER_PASSWORD
       valueFrom:
         secretKeyRef:
-           name: secret-additional
+           name: j-jenkins-additional-secrets
            key: docker-password
 
   volumes:
