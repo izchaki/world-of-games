@@ -20,6 +20,18 @@ spec:
     volumeMounts:
     - mountPath: /var/run/docker.sock
       name: docker-sock
+    env:
+    - name: DOCKER_USER_NAME
+      valueFrom:
+        secretKeyRef:
+           name: secret-additional
+           key: docker-user-name
+    - name: DOCKER_PASSWORD
+      valueFrom:
+        secretKeyRef:
+           name: secret-additional
+           key: docker-password
+
   volumes:
     - name: docker-sock
       hostPath:
@@ -56,6 +68,8 @@ spec:
           sh """
                       docker login -u izchaki -p Doer24295548
                       docker push izchaki/my-flask:build-by-jenkins
+                      echo $DOCKER_USER_NAME
+                      echo $DOCKER_PASSWORD
                                                 """
         }
       }
