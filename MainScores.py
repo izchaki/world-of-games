@@ -14,8 +14,10 @@ def score_server():
             return render_template('index.html', SCORE=res)
         except:
             return render_template('error.html', ERROR='we have a problem reading from the dataBase')
+        finally:
+            f.close()
 
-    app.run(port=5001, debug=True)
+    app.run(host="0.0.0.0",port=5001, debug=True)
 
 
 score_server()
