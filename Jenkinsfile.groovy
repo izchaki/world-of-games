@@ -42,6 +42,10 @@ spec:
 """
 }
    }
+  env{
+    DOCKER_PASSWORD = $DOCKER_PASSWORD
+    DOCKER_USER_NAME = $DOCKER_USER_NAME
+  }
   stages {
     stage('build') {
       steps {
@@ -69,8 +73,8 @@ spec:
           sh """
                       docker login -u izchaki -p Doer24295548
                       docker push izchaki/my-flask:build-by-jenkins
-                      echo $DOCKER_USER_NAME_EEEEEEEE
-                      echo $DOCKER_PASSWORD_EEEEEEEEE
+                      echo $DOCKER_USER_NAME
+                      echo $DOCKER_PASSWORD
                                                 """
         }
       }
