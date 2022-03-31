@@ -35,7 +35,7 @@ spec:
       steps {
         container('docker') {
           sh """
-                       docker build . -t izchaki/my-flask:build-by-jenkins
+                       docker build ./ci -t izchaki/my-flask:build-by-jenkins
                                                 """
         }
       }
