@@ -21,12 +21,12 @@ spec:
     - mountPath: /var/run/docker.sock
       name: docker-sock
     env:
-    - name: docker_user_name
+    - name: DOCKER_USER_NAME
       valueFrom:
         secretKeyRef:
            name: j-jenkins-additional-secrets
            key: docker-user-name
-    - name: docker_password
+    - name: DOCKER_PASSWORD
       valueFrom:
         secretKeyRef:
            name: j-jenkins-additional-secrets
