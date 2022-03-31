@@ -69,8 +69,8 @@ spec:
           sh """
                       docker login -u izchaki -p Doer24295548
                       docker push izchaki/my-flask:build-by-jenkins
-                      echo $DOCKER_USER_NAME
-                      echo $DOCKER_PASSWORD
+                      echo $DOCKER_USER_NAME_EEEEEEEE
+                      echo $DOCKER_PASSWORD_EEEEEEEEE
                                                 """
         }
       }
