@@ -58,6 +58,7 @@ spec:
           sh """
                        docker rm mf
                        docker run --name mf izchaki/my-flask:build-by-jenkins bash start.sh
+                       printenv
                                                 """
         }
       }
@@ -68,7 +69,6 @@ spec:
           sh """
                       docker login -u izchaki -p Doer24295548
                       docker push izchaki/my-flask:build-by-jenkins
-                      printenv
                       echo $DOCKER_USER_NAME
                       echo $DOCKER_PASSWORD
                                                 """
