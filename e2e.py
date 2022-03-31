@@ -18,7 +18,6 @@ def test_scores_service(url):
     try:
         chrome_driver.get(url)
         scores = chrome_driver.find_element(By.XPATH, value='//*[@id="score"]').text
-        print(scores)
         chrome_driver.quit()
         return 1 < int(scores) < 1000
     except Exception as e:
