@@ -1,13 +1,64 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build docker image'){
-            steps{
-                sh 'docker build -t izchaki/my-flask:from-jenkins-pipeline .'
-                sh 'docker login -u izchaki -p Doer24295548'
-                sh 'docker push izchaki/my-flask:from-jenkins-pipeline'
-                sh 'docker rmi izchaki/my-flask:from-jenkins-pipeline'
-            }
+  agent {
+    kubernetes {
+      label 'spring-petclinic-demo'
+      defaultContainer 'jnlp'
+      yaml """
+apiVersion: v1
+kind: Pod
+metadata:
+labels:
+  component: ci
+spec:
+  # Use service account that can deploy to all namespaces
+  containers:
+  - name: docker
+    image: docker:latest
+    command:
+    - cat
+    tty: true
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: docker-sock
+  volumes:
+    - name: docker-sock
+      hostPath:
+        path: /var/run/docker.sock
+    - name: flask-sock
+      hostPath:
+        path: /var/run/flask.sock
+"""
+}
+   }
+  stages {
+    stage('pull') {
+      steps {
+        container('docker') {
+          sh """
+                       docker pull izchaki/my-flask:testing
+                                                """
         }
+      }
     }
+    stage('test') {
+      steps {
+        container('docker') {
+          sh """
+                       docker rm mf
+                       docker run --name mf izchaki/my-flask:testing bash start.sh
+                                                """
+        }
+      }
+    }
+     stage('push') {
+      steps {
+        container('docker') {
+          sh """
+                      docker login -u izchaki -p Doer24295548
+                      docker push izchaki/my-flask:testing
+                                                """
+        }
+      }
+    }
+  }
 }
