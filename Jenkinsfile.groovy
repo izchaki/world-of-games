@@ -21,12 +21,12 @@ spec:
     - mountPath: /var/run/docker.sock
       name: docker-sock
     env:
-    - name: docker-user-name
+    - name: docker_user_name
       valueFrom:
         secretKeyRef:
            name: j-jenkins-additional-secrets
            key: docker-user-name
-    - name: docker-password
+    - name: docker_password
       valueFrom:
         secretKeyRef:
            name: j-jenkins-additional-secrets
@@ -68,8 +68,8 @@ spec:
           sh """
                       docker login -u izchaki -p Doer24295548
                       docker push izchaki/my-flask:build-by-jenkins
-                      echo $DOCKER_USER_NAME
-                      echo $DOCKER_PASSWORD
+                      echo $docker_user_name
+                      echo $docker_password
                                                 """
         }
       }
