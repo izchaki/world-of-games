@@ -10,7 +10,6 @@ def score_server():
         try:
             f = open('Scores.txt', 'r')
             res = f.read()
-            print(res)
             return render_template('index.html', SCORE=res)
         except:
             return render_template('error.html', ERROR='we have a problem reading from the dataBase')
