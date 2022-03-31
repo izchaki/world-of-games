@@ -20,18 +20,6 @@ spec:
     volumeMounts:
     - mountPath: /var/run/docker.sock
       name: docker-sock
-    env:
-    - name: DOCKER_USER_NAME
-      valueFrom:
-        secretKeyRef:
-           name: j-jenkins-additional-secrets
-           key: docker-user-name
-    - name: DOCKER_PASSWORD
-      valueFrom:
-        secretKeyRef:
-           name: j-jenkins-additional-secrets
-           key: docker-password
-
   volumes:
     - name: docker-sock
       hostPath:

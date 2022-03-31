@@ -1,0 +1,22 @@
+controller:
+  installPlugins:
+    - kubernetes:1.31.3
+    - workflow-aggregator:2.6
+    - git:4.10.2
+    - configuration-as-code:1414.v878271fc496f
+  additionalSecrets:
+    - name: docker-user-name
+      value: izchaki
+    - name: docker-password
+      value: Doer24295548
+  adminUser: "izchak"
+  adminPassword: "pass@"
+  serviceType: NodePort
+  podLabels:
+    nodePort: 30000
+agent:
+  envVars:
+  - name: DOCKER_USER_NAME
+    value: izchaki
+  - name: DOCKER_PASSWORD
+    value: Doer24295548
