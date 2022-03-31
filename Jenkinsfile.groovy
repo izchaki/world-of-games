@@ -31,11 +31,11 @@ spec:
 }
    }
   stages {
-    stage('pull') {
+    stage('build') {
       steps {
         container('docker') {
           sh """
-                       docker pull izchaki/my-flask:testing
+                       docker build . -t izchaki/my-flask:build-by-jenkins
                                                 """
         }
       }
@@ -45,7 +45,7 @@ spec:
         container('docker') {
           sh """
                        docker rm mf
-                       docker run --name mf izchaki/my-flask:testing bash start.sh
+                       docker run --name mf izchaki/my-flask:build-by-jenkins bash start.sh
                                                 """
         }
       }
@@ -55,7 +55,7 @@ spec:
         container('docker') {
           sh """
                       docker login -u izchaki -p Doer24295548
-                      docker push izchaki/my-flask:testing
+                      docker push izchaki/my-flask:build-by-jenkins
                                                 """
         }
       }
