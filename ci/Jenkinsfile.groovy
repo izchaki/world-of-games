@@ -54,7 +54,7 @@ spec:
       steps {
         container('docker') {
           sh """
-                      docker login -u izchaki -p Doer24295548
+                      docker login -u izchaki -p nitta1234
                       docker push izchaki/my-flask:build-by-jenkins
                                                 """
         }
