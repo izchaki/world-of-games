@@ -1,3 +1,9 @@
+#World Of Games!
+##this project is about creating three games:
+    *Memory Game
+    *Guess Game
+    *CurrencyRoulette
+
 deploy jenkins:
 
 helm repo add jenkins https://charts.jenkins.io
