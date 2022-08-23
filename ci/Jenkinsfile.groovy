@@ -43,7 +43,7 @@ spec:
     stage('test') {
       steps {
         container('docker') {
-          sh '''#!/bin/bash
+          bash '''#!/bin/bash
                        if [ $( docker ps -a | grep mf | wc -l ) -gt 0 ]; then
                             docker rm mf
                        fi
