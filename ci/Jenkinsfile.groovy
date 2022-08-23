@@ -43,12 +43,9 @@ spec:
     stage('test') {
       steps {
         container('docker') {
-          bash '''#!/bin/bash
-                       if [ $( docker ps -a | grep mf | wc -l ) -gt 0 ]; then
-                            docker rm mf
-                       fi
-          '''
+
           sh """
+                       if [ $( docker ps -a | grep mf | wc -l ) -gt 0 ]; then docker rm mf ; fi
                        docker run --name mf izchaki/my-flask:build-by-jenkins bash start.sh
                                                 """
         }
