@@ -40,13 +40,21 @@ spec:
         }
       }
     }
-    stage('test') {
+    stage('check-container-state') {
       steps {
         container('docker') {
           sh """
                        if [ $( docker ps -a | grep mf | wc -l ) -gt 0 ]; then
                             docker rm mf
                        fi
+                       """
+        }
+      }
+    }
+    stage('test') {
+      steps {
+        container('docker') {
+          sh """
                        docker run --name mf izchaki/my-flask:build-by-jenkins bash start.sh
                                                 """
         }
