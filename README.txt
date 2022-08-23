@@ -1,8 +1,8 @@
-#World Of Games!
-##this project is about creating three games:
-    *Memory Game
-    *Guess Game
-    *CurrencyRoulette
+# World Of Games!
+## this project is about creating three games:
+    * Memory Game
+    * Guess Game
+    * CurrencyRoulette
 
 deploy jenkins:
 
