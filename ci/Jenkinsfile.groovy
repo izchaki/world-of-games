@@ -40,24 +40,24 @@ spec:
         }
       }
     }
-//     stage('test') {
-//       steps {
-//         container('docker') {
-//           sh """
-// //                        #!/bin/bash
-// //                        if [ $( docker ps -a | grep mf | wc -l ) -gt 0 ]; then
-// //                             docker rm mf
-// //                        fi
-//                        docker run --name mf izchaki/my-flask:build-by-jenkins bash start.sh
-//                                                 """
-//         }
-//       }
-//     }
+    stage('test') {
+      steps {
+        container('docker') {
+//                        #!/bin/bash
+//                        if [ $( docker ps -a | grep mf | wc -l ) -gt 0 ]; then
+//                             docker rm mf
+//                        fi
+          sh """
+                       docker run --name mf izchaki/my-flask:build-by-jenkins bash start.sh
+                                                """
+        }
+      }
+    }
      stage('push') {
       steps {
         container('docker') {
           sh """
-                      docker login -u name -p //password
+                      docker login -u name //name -p //password
                       docker push izchaki/my-flask:build-by-jenkins
                                                 """
         }
