@@ -11,10 +11,15 @@ CONTENTS OF THIS FILE
  INTRODUCTION
 ------------
 
-this project is about creating three games:
+this project is about creating three games that we can play with them via the command line:
   - Memory Game
   - Guess Game
   - CurrencyRoulette
+  
+  after pushing to your repo jenkins will start a pipeline to check if everything works and pushing the new image to
+  your dockerHub registry.
+  
+  ( i deleted my username and changed my password so the push stage will fail.)
 
 REQUIREMENTS
 ------------
