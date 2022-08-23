@@ -23,10 +23,7 @@ create pipeline:
     Definition: pipeline script from SCM
     SCM:Git
     Repository URL: https://github.com/izchaki/world-of-games
-    Credentials:
-        create new key:
-              username: izchaki10@gmail.com
-              password: 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
+    Credentials: none
      Branch Specifier (blank for 'any'):*/master
      Repository browser:Auto
      Script Path: ci/Jenkinsfile.groovy
