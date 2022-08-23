@@ -44,7 +44,9 @@ spec:
       steps {
         container('docker') {
           sh """
-                       docker rm mf
+                       if [ $( docker ps -a | grep mf | wc -l ) -gt 0 ]; then
+                            docker rm mf
+                       fi
                        docker run --name mf izchaki/my-flask:build-by-jenkins bash start.sh
                                                 """
         }
